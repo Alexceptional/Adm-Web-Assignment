@@ -2,12 +2,18 @@
     Main stylesheet for page layout.
 */
 
+html, body {
+    height: 100%;
+}
+
 body {
-    background-color: #ffffff;
+    background-color: #e6ecff;
 }
 
 #wrapper {
     width: 800px;
     margin: 0 auto;
-    background-color: #ffccff;
+    padding: 1px 10px 10px 10px;
+    background-color: #ffffff;
+    height: 100%;
 }
