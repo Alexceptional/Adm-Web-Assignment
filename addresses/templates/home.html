@@ -2,8 +2,82 @@
 
 {% block home %}
 
-    <div id="wrapper">
-        <h1>It works, woo!</h1>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Address Book</h1>
+            <br>
+        </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>People</h2>
+            <table class="table table-hover table-bordered" id="person-table">
+                <thead>
+                    <tr>
+                        <th> Name </th>
+                        <th> Tel. </th>
+                        <th> Email </th>
+                        <th> Organisation </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in people %}
+                        <tr>
+                            <td> {{ row.fullname }} </td>
+                            <td> {{ row.telephone }} </td>
+                            <td> {{ row.email }} </td>
+                            <td> {{ row.organisation.org_name }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Organisations</h2>
+            <table class="table table-hover table-bordered" id="org-table">
+                <thead>
+                    <tr>
+                        <th> Organisation Name </th>
+                        <th> Tel. </th>
+                        <th> Email </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in orgs %}
+                        <tr>
+                            <td> {{ row.org_name }} </td>
+                            <td> {{ row.telephone }} </td>
+                            <td> {{ row.email }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+
+        $('#person-table').ready(function() {
+            $('#person-table').dataTable({
+                "lengthMenu": [[12, 50, -1], [12, 50, "All"]],
+                "bLengthChange": false,
+                "pageLength": 6
+            });
+        });
+
+        $('#org-table').ready(function() {
+            $('#org-table').dataTable({
+                "lengthMenu": [[12, 50, -1], [12, 50, "All"]],
+                "bLengthChange": false,
+                "pageLength": 4
+            });
+        });
+
+    </script>
 
 {% endblock %}

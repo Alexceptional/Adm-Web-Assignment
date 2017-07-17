@@ -1,11 +1,15 @@
 from django.shortcuts import render
+from addresses.models import Person, Organisation
 
 # Create your views here.
 
 
 def homepage(request):
 
-    return render(request, 'home.html', {})
+    people = Person.objects.all()
+    orgs = Organisation.objects.all()
+
+    return render(request, 'home.html', {'people': people, 'orgs': orgs})
 
 
 def view_person(request):

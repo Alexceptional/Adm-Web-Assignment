@@ -98,5 +98,21 @@ class Person(Address):
         Organisation, help_text='Organisation Name'
     )
 
+    def get_fullname(self):
+
+        """
+        This method returns the persons formatted full name, rather than just first name, surname etc.
+
+        :return: str
+            full name, formatted
+        """
+
+        fullname = self.firstname
+
+        if self.middlename:
+            fullname += ' ' + self.middlename
+
+        return fullname + ' ' + self.surname
+
     def __str__(self):
-        return '{0} {1} {2}'.format(self.firstname, self.middlename, self.surname)
+        return self.get_fullname()

@@ -19,8 +19,10 @@
     <title>{% block title %}Address Book{% endblock %}</title>
 </head>
 <body>
-    {% block home %}{% endblock %}
-    {% block person %}{% endblock %}
-    {% block organisation %}{% endblock %}
+    <div id="wrapper">
+        {% block home %}{% endblock %}
+        {% block person %}{% endblock %}
+        {% block organisation %}{% endblock %}
+    </div>
 </body>
 </html>
