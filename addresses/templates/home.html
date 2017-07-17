@@ -24,7 +24,7 @@
                 <tbody>
                     {% for row in people %}
                         <tr>
-                            <td> {{ row.fullname }} </td>
+                            <td> {{ row.get_fullname }} </td>
                             <td> {{ row.telephone }} </td>
                             <td> {{ row.email }} </td>
                             <td> {{ row.organisation.org_name }} </td>
