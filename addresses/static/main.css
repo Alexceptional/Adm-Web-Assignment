@@ -1,0 +1,13 @@
+/*
+    Main stylesheet for page layout.
+*/
+
+body {
+    background-color: #ffffff;
+}
+
+#wrapper {
+    width: 800px;
+    margin: 0 auto;
+    background-color: #ffccff;
+}

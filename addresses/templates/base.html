@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Address book - programming exercise for Administrate">
+    <meta name="author" content="Alexander N Scott">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link href="{% static 'main.css' %}" rel="stylesheet" type="text/css">
+
+    <title>{% block title %}Address Book{% endblock %}</title>
+</head>
+<body>
+    {% block home %}{% endblock %}
+    {% block person %}{% endblock %}
+    {% block organisation %}{% endblock %}
+</body>
+</html>
