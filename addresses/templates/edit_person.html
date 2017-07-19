@@ -2,4 +2,77 @@
 
 {% block edit_person %}
 
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Create/Edit Person</h1>
+            <br>
+        </div>
+    </div>
+
+    <div class="row">
+        <form id="person_form" method="post" action="{% if person %}{% url 'update_person' page_id=person.id %}{% else %}{% url 'create_person' %}{% endif %}">
+            {% csrf_token %}
+
+            <div class="col-lg-4">
+
+                {% for field in form %}
+
+                    {% if forloop.counter <= 4 %}
+
+                        <label>{{ field.help_text }}:</label>
+                        <br>
+                        {{ field }} {{ field.errors }}
+                        <br><br>
+
+                    {% endif %}
+
+                {% endfor %}
+
+                <br>
+
+
+            </div>
+            <div class="col-lg-4">
+
+                {% for field in form %}
+
+                    {% if forloop.counter >= 5 and forloop.counter <= 10 %}
+
+                        <label>{{ field.help_text }}:</label>
+                        <br>
+                        {{ field }} {{ field.errors }}
+                        <br><br>
+
+                    {% endif %}
+
+                {% endfor %}
+
+                <br>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                {% for field in form %}
+
+                    {% if forloop.counter >= 11 %}
+
+                        <label>{{ field.help_text }}:</label>
+                        <br>
+                        {{ field }} {{ field.errors }}
+                        <br><br>
+
+                    {% endif %}
+
+                {% endfor %}
+
+                <br>
+
+                <input type="submit" class="btn-lg btn-success" id="save_person" name="save" value="Save" />
+
+            </div>
+
+        </form>
+    </div>
+
 {% endblock %}
