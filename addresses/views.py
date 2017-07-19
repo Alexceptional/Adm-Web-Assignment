@@ -12,21 +12,21 @@ def homepage(request):
     return render(request, 'home.html', {'people': people, 'orgs': orgs})
 
 
-def view_person(request):
+def view_person(request, **kwargs):
 
-    return
-
-
-def update_person(request):
-
-    return
+    return render(request, 'person.html', {})
 
 
-def view_org(request):
+def update_person(request, **kwargs):
 
-    return
+    return render(request, 'edit_person.html', {})
 
 
-def update_org(request):
+def view_org(request, **kwargs):
 
-    return
+    return render(request, 'organisation.html', {})
+
+
+def update_org(request, **kwargs):
+
+    return render(request, 'edit_organisation.html', {})

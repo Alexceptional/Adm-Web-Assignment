@@ -17,5 +17,9 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'addresses.views.homepage', name='home')
+    url(r'^$', 'addresses.views.homepage', name='home'),
+    url(r'^person/(?P<page_id>\d+)/$', 'addresses.views.view_person', name='view_person'),
+    url(r'^updateperson/(?P<page_id>\d+)/$', 'addresses.views.update_person', name='update_person'),
+    url(r'^org/(?P<page_id>\d+)/$', 'addresses.views.view_org', name='view_org'),
+    url(r'^updateorg/(?P<page_id>\d+)/$', 'addresses.views.update_org', name='update_org'),
 ]
