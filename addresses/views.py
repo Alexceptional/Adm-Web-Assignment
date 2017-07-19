@@ -7,6 +7,13 @@ from addresses.forms import PersonForm, OrganisationForm
 
 def homepage(request):
 
+    """
+    Homepage - renders main page, including list of people and organisations in the
+    address book.
+
+    """
+
+    # Query all entries from the database and add to context:
     people = Person.objects.all()
     orgs = Organisation.objects.all()
 
@@ -15,6 +22,12 @@ def homepage(request):
 
 def view_person(request, **kwargs):
 
+    """
+    View a single contact - fetch a person my their ID (passed as a keyword argument) and render
+    with context.
+
+    """
+
     person = Person.objects.get(id=kwargs['page_id'])
 
     return render(request, 'person.html', {'person': person})
@@ -22,19 +35,29 @@ def view_person(request, **kwargs):
 
 def create_person(request):
 
+    """
+    Create a new person from a blank form. Either produces a blank form and renders, or takes a POST
+    from a form submission, validates and either redirects if valid or re-renders form with errors
+    if not valid.
+
+    """
+
+    # Handle form submission
     if request.method == 'POST':
         personform = PersonForm(request.POST)
 
         if personform.is_valid():
+            # Save new instance of object and redirect to the person page.
             newperson = personform.save()
 
             response = redirect(view_person, page_id=newperson.id)
 
         else:
-            # MESSAGE?
+            # Re-render form with errors
             response = render(request, 'edit_person.html', {'form': personform})
 
     else:
+        # Initialise blank form and render
         personform = PersonForm()
 
         response = render(request, 'edit_person.html', {'form': personform})
@@ -54,7 +77,6 @@ def update_person(request, **kwargs):
             response = redirect(view_person, page_id=newperson.id)
 
         else:
-            # MESSAGE?
             response = render(request, 'edit_person.html', {'form': personform, 'person': person_inst})
 
     else:
@@ -91,7 +113,6 @@ def create_org(request):
             response = redirect(view_org, page_id=neworg.id)
 
         else:
-            # MESSAGE?
             response = render(request, 'edit_organisation.html', {'form': orgform})
 
     else:
@@ -114,7 +135,6 @@ def update_org(request, **kwargs):
             response = redirect(view_org, page_id=neworg.id)
 
         else:
-            # MESSAGE?
             response = render(request, 'edit_organisation.html', {'form': orgform, 'org': org_inst})
 
     else:
