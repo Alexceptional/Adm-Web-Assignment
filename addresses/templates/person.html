@@ -67,7 +67,11 @@
                 </tr>
                 <tr>
                     <td><label>Organisation: </label></td>
-                    <td> <a href="{% url 'view_org' page_id=person.organisation.id %}" >{{ person.organisation.org_name }}</a> </td>
+                    {% if person.organisation %}
+                        <td> <a href="{% url 'view_org' page_id=person.organisation.id %}" >{{ person.organisation.org_name }}</a> </td>
+                    {% else %}
+                        <td> - </td>
+                    {% endif %}
                 </tr>
             </table>
 

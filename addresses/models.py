@@ -90,7 +90,7 @@ class Person(Address):
     ]
 
     title = models.CharField(
-        help_text='Title', max_length=3, choices=title_choices, blank=True
+        help_text='Title', max_length=4, choices=title_choices, blank=True
     )
 
     firstname = models.CharField(
@@ -106,7 +106,7 @@ class Person(Address):
     )
 
     organisation = models.ForeignKey(
-        Organisation, help_text='Organisation Name'
+        Organisation, help_text='Organisation Name', blank=True, null=True, on_delete=models.SET_NULL
     )
 
     def get_fullname(self):

@@ -30,12 +30,12 @@ class OrganisationForm(forms.ModelForm):
         model = Organisation
         fields = (
             'org_name',
+            'telephone',
+            'email',
             'address_line1',
             'address_line2',
             'address_line3',
             'address_city',
             'address_county',
             'address_postcode',
-            'telephone',
-            'email',
         )

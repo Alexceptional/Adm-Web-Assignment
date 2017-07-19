@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^createperson/', 'addresses.views.create_person', name='create_person'),
     url(r'^updateperson/(?P<page_id>\d+)/$', 'addresses.views.update_person', name='update_person'),
     url(r'^org/(?P<page_id>\d+)/$', 'addresses.views.view_org', name='view_org'),
+    url(r'^createorg/', 'addresses.views.create_org', name='create_org'),
     url(r'^updateorg/(?P<page_id>\d+)/$', 'addresses.views.update_org', name='update_org'),
 ]

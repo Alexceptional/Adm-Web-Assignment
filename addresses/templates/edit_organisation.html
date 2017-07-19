@@ -2,4 +2,64 @@
 
 {% block edit_organisation %}
 
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Create/Edit Organisation</h1>
+            <br>
+        </div>
+    </div>
+
+    <form id="org_form" method="post" action="{% if org %}{% url 'update_org' page_id=org.id %}{% else %}{% url 'create_org' %}{% endif %}">
+        {% csrf_token %}
+
+        <div class="row">
+
+            <div class="col-lg-6">
+                <h3>Contact Details</h3>
+                {% for field in form %}
+                    {% if forloop.counter <= 3 %}
+                        <label>{{ field.help_text }}:</label>
+                        <br>
+                        {{ field }} {{ field.errors }}
+                        <br><br>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-lg-6">
+                <h3>Address Details</h3>
+                {% for field in form %}
+                    {% if forloop.counter > 3 %}
+                        <label>{{ field.help_text }}:</label>
+                        <br>
+                        {{ field }} {{ field.errors }}
+                        <br><br>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="pull-right btn-toolbar">
+                    <a class="btn btn-primary" href="{% url 'home'  %}">Home</a>
+                    <a class="btn btn-success" href="#" id="submit_org">Save Organisation</a>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <style>
+        input[type=text], select {
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        $('#submit_org').click(function() {
+            $('#org_form').submit();
+        });
+    </script>
+
 {% endblock %}

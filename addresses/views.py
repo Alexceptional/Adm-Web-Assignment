@@ -80,6 +80,53 @@ def view_org(request, **kwargs):
     return render(request, 'organisation.html', {'org': org, 'people': people})
 
 
-def update_org(request, **kwargs):
+def create_org(request):
 
-    return render(request, 'edit_organisation.html', {})
+    if request.method == 'POST':
+        orgform = OrganisationForm(request.POST)
+
+        if orgform.is_valid():
+            neworg = orgform.save()
+
+            response = redirect(view_org, page_id=neworg.id)
+
+        else:
+            # MESSAGE?
+            response = render(request, 'edit_organisation.html', {'form': orgform})
+
+    else:
+        orgform = OrganisationForm()
+
+        response = render(request, 'edit_organisation.html', {'form': orgform})
+
+    return response
+
+
+def update_org(request, **kwargs):
+    org_inst = Organisation.objects.get(id=kwargs['page_id'])
+
+    if request.method == 'POST':
+        orgform = OrganisationForm(request.POST, instance=org_inst)
+
+        if orgform.is_valid():
+            neworg = orgform.save()
+
+            response = redirect(view_org, page_id=neworg.id)
+
+        else:
+            # MESSAGE?
+            response = render(request, 'edit_organisation.html', {'form': orgform, 'org': org_inst})
+
+    else:
+        if request.GET.get('delete'):
+            org_inst.delete()
+
+            response = redirect(homepage)
+
+        else:
+            org_inst = Organisation.objects.get(id=kwargs['page_id'])
+            orgform = OrganisationForm(instance=org_inst)
+
+            response = render(request, 'edit_organisation.html', {'form': orgform, 'org': org_inst})
+
+    return response
