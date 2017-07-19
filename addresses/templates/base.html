@@ -8,8 +8,8 @@
 
     {% load static %}
     <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'main.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'main.css' %}" rel="stylesheet" type="text/css">
 
     <script type="text/javascript" src="{% static 'jquery/dist/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
@@ -26,5 +26,6 @@
         {% block organisation %}{% endblock %}
         {% block edit_organisation %}{% endblock %}
     </div>
+
 </body>
 </html>

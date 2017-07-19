@@ -11,15 +11,16 @@ class PersonForm(forms.ModelForm):
             'firstname',
             'middlename',
             'surname',
+            'telephone',
+            'email',
+            'organisation',
+
             'address_line1',
             'address_line2',
             'address_line3',
             'address_city',
             'address_county',
             'address_postcode',
-            'telephone',
-            'email',
-            'organisation',
         )
 
 

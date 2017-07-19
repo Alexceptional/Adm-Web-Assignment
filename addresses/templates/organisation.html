@@ -61,6 +61,7 @@
         <div class="col-lg-12">
 
             <div class="pull-right btn-toolbar">
+                <a class="btn btn-primary" href="{% url 'home'  %}">Home</a>
                 <a class="btn btn-primary" href="{% url 'update_org'  page_id=org.id %}">Edit Organisation</a>
                 <a class="btn btn-danger" href="{% url 'update_org'  page_id=org.id %}?delete=true">Delete Organisation</a>
             </div>

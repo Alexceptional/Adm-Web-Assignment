@@ -27,3 +27,7 @@ body {
     vertical-align: top;
     padding-right: 40px;
 }
+
+input {
+    width: 100%;
+}
