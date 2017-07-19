@@ -14,7 +14,9 @@ def homepage(request):
 
 def view_person(request, **kwargs):
 
-    return render(request, 'person.html', {})
+    person = Person.objects.get(id=kwargs['page_id'])
+
+    return render(request, 'person.html', {'person': person})
 
 
 def update_person(request, **kwargs):
@@ -24,7 +26,9 @@ def update_person(request, **kwargs):
 
 def view_org(request, **kwargs):
 
-    return render(request, 'organisation.html', {})
+    org = Organisation.objects.get(id=kwargs['page_id'])
+
+    return render(request, 'organisation.html', {'org': org})
 
 
 def update_org(request, **kwargs):

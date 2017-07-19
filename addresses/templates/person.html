@@ -2,4 +2,82 @@
 
 {% block person %}
 
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">{{ person.get_fullname }} - Details</h1>
+            <br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+
+            <table class="table-hover details-table">
+                <tr>
+                    <td><label>Title: </label></td>
+                    <td>{{ person.title }}</td>
+                </tr>
+                <tr>
+                    <td><label>First Name: </label></td>
+                    <td>{{ person.firstname }}</td>
+                </tr>
+                <tr>
+                    <td><label>Middle Name(s): </label></td>
+                    <td>{{ person.middlename }}</td>
+                </tr>
+                <tr>
+                    <td><label>Surname: </label></td>
+                    <td>{{ person.surname }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><label>Telephone: </label></td>
+                    <td>{{ person.telephone }}</td>
+                </tr>
+                <tr>
+                    <td><label>Email: </label></td>
+                    <td>{{ person.email }}</td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="col-lg-6">
+
+            <table class="table-hover details-table">
+                <tr>
+                    <td><label>Locality: </label></td>
+                    <td>{{ person.composite_addr|linebreaks }}</td>
+                </tr>
+                <tr>
+                    <td><label>City: </label></td>
+                    <td>{{ person.address_city }}</td>
+                </tr>
+                <tr>
+                    <td><label>County: </label></td>
+                    <td>{{ person.address_county }}</td>
+                </tr>
+                <tr>
+                    <td><label>Post Code: </label></td>
+                    <td>{{ person.address_postcode }}</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="pull-right btn-toolbar">
+                <a class="btn btn-primary" href="{% url 'update_person'  page_id=person.id %}">Edit Contact</a>
+                <a class="btn btn-danger" href="{% url 'update_person'  page_id=person.id %}?delete=true">Delete Contact</a>
+            </div>
+
+        </div>
+    </div>
+
 {% endblock %}

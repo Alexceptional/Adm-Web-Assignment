@@ -43,6 +43,17 @@ class Address(models.Model):
         help_text='Email Address', max_length=100, blank=True
     )
 
+    def composite_addr(self):
+        addr = self.address_line1
+
+        if self.address_line2:
+            addr += '\n' + str(self.address_line2)
+
+        if self.address_line3:
+            addr += '\n' + str(self.address_line3)
+
+        return addr
+
     class Meta:
         abstract = True
 

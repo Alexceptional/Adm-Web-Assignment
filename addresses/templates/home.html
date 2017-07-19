@@ -24,7 +24,7 @@
                 <tbody>
                     {% for row in people %}
                         <tr>
-                            <td> {{ row.get_fullname }} </td>
+                            <td> <a href="{% url 'view_person' page_id=row.id %}" >{{ row.get_fullname }}</a> </td>
                             <td> {{ row.telephone }} </td>
                             <td> {{ row.email }} </td>
                             <td> {{ row.organisation.org_name }} </td>
