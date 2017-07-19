@@ -50,7 +50,7 @@
                 <tbody>
                     {% for row in orgs %}
                         <tr>
-                            <td> {{ row.org_name }} </td>
+                            <td> <a href="{% url 'view_org' page_id=row.id %}" >{{ row.org_name }}</a> </td>
                             <td> {{ row.telephone }} </td>
                             <td> {{ row.email }} </td>
                         </tr>

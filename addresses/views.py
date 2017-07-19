@@ -27,8 +27,9 @@ def update_person(request, **kwargs):
 def view_org(request, **kwargs):
 
     org = Organisation.objects.get(id=kwargs['page_id'])
+    people = Person.objects.filter(organisation=org)
 
-    return render(request, 'organisation.html', {'org': org})
+    return render(request, 'organisation.html', {'org': org, 'people': people})
 
 
 def update_org(request, **kwargs):

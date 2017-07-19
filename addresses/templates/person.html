@@ -62,6 +62,13 @@
                     <td><label>Post Code: </label></td>
                     <td>{{ person.address_postcode }}</td>
                 </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><label>Organisation: </label></td>
+                    <td> <a href="{% url 'view_org' page_id=person.organisation.id %}" >{{ person.organisation.org_name }}</a> </td>
+                </tr>
             </table>
 
         </div>
