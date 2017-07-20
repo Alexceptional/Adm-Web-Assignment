@@ -1,6 +1,13 @@
-from django.db import models
+"""
+  All models for the 'addresses' app:
 
-# Create your models here.
+  - Address (abstract base class)
+  - Organisation(Address)
+  - Person(Address)
+
+"""
+
+from django.db import models
 
 
 class Address(models.Model):
@@ -8,7 +15,6 @@ class Address(models.Model):
     """
     Abstract base class for address/contact details; this will be used for both the 'Person' and 'Organisation'
     model as both require these common fields.
-
     """
 
     address_line1 = models.CharField(
@@ -44,6 +50,14 @@ class Address(models.Model):
     )
 
     def composite_addr(self):
+
+        """
+        Return the first three lines of the address as a single string, with each line seperated
+        by the '\n' line seperator.
+
+        :return: str
+        """
+
         addr = self.address_line1
 
         if self.address_line2:
@@ -61,8 +75,7 @@ class Address(models.Model):
 class Organisation(Address):
 
     """
-    Organisation model. Inherits from 'Address' base class.
-
+    Organisation model - stores a single instance of an organisation. Inherits from 'Address' base class.
     """
 
     org_name = models.CharField(
@@ -76,8 +89,7 @@ class Organisation(Address):
 class Person(Address):
 
     """
-    Person Model. Inherits from 'Address' base class.
-
+    Person Model - stores a single instance of a person/contact. Inherits from 'Address' base class.
     """
 
     title_choices = [
@@ -104,6 +116,9 @@ class Person(Address):
     surname = models.CharField(
         help_text='Surname', max_length=50
     )
+
+    # Organisation foreign key (many-to-one relationship). Delete mode is set to 'SET_NULL' which sets this
+    # field to null if the related organisation is deleted:
 
     organisation = models.ForeignKey(
         Organisation, help_text='Organisation Name', blank=True, null=True, on_delete=models.SET_NULL

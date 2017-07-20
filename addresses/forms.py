@@ -4,6 +4,11 @@ from django import forms
 
 class PersonForm(forms.ModelForm):
 
+    """
+    ModelForm for creating/updating Person instances. All field properties are inherited from
+    the Person model.
+    """
+
     class Meta:
         model = Person
         fields = (
@@ -14,7 +19,6 @@ class PersonForm(forms.ModelForm):
             'telephone',
             'email',
             'organisation',
-
             'address_line1',
             'address_line2',
             'address_line3',
@@ -25,6 +29,11 @@ class PersonForm(forms.ModelForm):
 
 
 class OrganisationForm(forms.ModelForm):
+
+    """
+    ModelForm for creating/updating Organisation instances. All field properties are inherited from
+    the Organisation model.
+    """
 
     class Meta:
         model = Organisation
