@@ -34,7 +34,7 @@ class Address(models.Model):
     )
 
     address_county = models.CharField(
-        help_text='County', max_length=50
+        help_text='County', max_length=50, blank=True
     )
 
     address_postcode = models.CharField(
@@ -102,7 +102,7 @@ class Person(Address):
     ]
 
     title = models.CharField(
-        help_text='Title', max_length=4, choices=title_choices, blank=True
+        help_text='Title', max_length=6, choices=title_choices, blank=True
     )
 
     firstname = models.CharField(
