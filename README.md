@@ -42,6 +42,9 @@ The front end is written using HTML and CSS, with Bootstrap, JQuery and Datatabl
 
 Bootstrap is a fast, easy to use content framework; I chose to use this due to both my familiarity with it and its ease of use. I felt Datatables provide a great way to represent the address book data, with its search and pagination features, customisation, and integration with Bootstrap.
 
+#### Installation
+The static libraries I have use were installed using Bower directly into the static directory in the addresses app.
+
 ### Database
 For a larger, production-level project I would choose to use either MySQL or PostrgeSQL, however for this exercise I chose to stick with the Django default of SQLite. This will allow me to commit the database file to version control to allow the persistence of data regardless of which environment the code is executed on, as required by the exercise. Using SQLite also prevents the need for the setup and configuration of a SQL service such as MySQL.
 
