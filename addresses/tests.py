@@ -1,11 +1,14 @@
 from django.test import TestCase
 
-# Create your tests here.
-
 
 class AddrViewTests(TestCase):
 
     def test_homepage_resp(self):
+
+        """
+        Simple unit test for the homepage. The test checks that the view returns HTTP 200 and
+         that the context data contains 'people' and 'orgs' keys.
+        """
 
         resp = self.client.get('/')
 
