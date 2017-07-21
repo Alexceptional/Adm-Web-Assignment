@@ -67,6 +67,13 @@ python manage.py runmodwsgi addresses/wsgi.py --port 8000 --server-name 127.0.0.
 
 substituting `--user` and `--group` with the user to run the server, `--server-root` with the desired directory of the Apache instance to be created, and any IP or port desired. The web app can then be accessed at the specified address and port.
 
+## Using the Address Book
+Navigating to the main page, one can see lists of both users and organisations. These can be clicked to view details about each, including address details. There are also links next to each to create a new instance of a person or organisation.
+
+The person details view shows the details of that person, and what organisation they are a member of. The organisation can be clicked to navigate to details of that organisation. The page contains an edit button, which will present a form in which the instance details can be updated, including selecting the organisation. There is also a delete button to remove that person from the address book.
+
+The organisation details view shows both the details of that organisation and a list of people in that organisation. This list of people functions similarly to the full list of people on the homepage. As before the page contains an edit button which will present a form to allow editing of that organisation, and a delete button to remove it. Deleting an organisation *does not* delete all the people in that organisation.
+
 ## Dependencies
 This project only requires a single Python module:
 * **Django==1.8.18**
