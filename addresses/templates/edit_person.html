@@ -13,7 +13,6 @@
         {% csrf_token %}
 
         <div class="row">
-
             <div class="col-lg-6">
                 <h3>Contact Details</h3>
                 {% for field in form %}
@@ -36,7 +35,6 @@
                     {% endif %}
                 {% endfor %}
             </div>
-
         </div>
         <hr>
         <div class="row">
@@ -57,6 +55,8 @@
     </style>
 
     <script>
+        // JQuery routine to submit form. This allows us to use a standard
+        // href rather than an input.
         $('#submit_person').click(function() {
             $('#person_form').submit();
         });

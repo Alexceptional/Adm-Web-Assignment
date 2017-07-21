@@ -61,10 +61,11 @@
     </div>
 
     <script>
+        // Initialisation for Datatables. I chose to hide the items-per-page
+        // selectors and set a fixed number of visible items.
 
         $('#person-table').ready(function() {
             $('#person-table').dataTable({
-                "lengthMenu": [[12, 50, -1], [12, 50, "All"]],
                 "bLengthChange": false,
                 "pageLength": 6
             });
@@ -72,12 +73,10 @@
 
         $('#org-table').ready(function() {
             $('#org-table').dataTable({
-                "lengthMenu": [[12, 50, -1], [12, 50, "All"]],
                 "bLengthChange": false,
                 "pageLength": 4
             });
         });
-
     </script>
 
 {% endblock %}

@@ -11,7 +11,6 @@
 
     <div class="row">
         <div class="col-lg-6">
-
             <table class="table-hover details-table">
                 <tr>
                     <td><label>Title: </label></td>
@@ -41,10 +40,8 @@
                     <td>{{ person.email }}</td>
                 </tr>
             </table>
-
         </div>
         <div class="col-lg-6">
-
             <table class="table-hover details-table">
                 <tr>
                     <td><label>Locality: </label></td>
@@ -74,21 +71,17 @@
                     {% endif %}
                 </tr>
             </table>
-
         </div>
     </div>
-
     <hr>
 
     <div class="row">
         <div class="col-lg-12">
-
             <div class="pull-right btn-toolbar">
                 <a class="btn btn-primary" href="{% url 'home'  %}">Home</a>
                 <a class="btn btn-primary" href="{% url 'update_person'  page_id=person.id %}">Edit Contact</a>
                 <a class="btn btn-danger" href="{% url 'update_person'  page_id=person.id %}?delete=true">Delete Contact</a>
             </div>
-
         </div>
     </div>
 
